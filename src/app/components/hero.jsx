@@ -1,11 +1,25 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Hero = () => {
+  const [showExperienceModal, setShowExperienceModal] = useState(false);
   const [showProjectsModal, setShowProjectsModal] = useState(false);
   const [showCertificationsModal, setShowCertificationsModal] = useState(false);
+  const [particles, setParticles] = useState([]);
+
+  useEffect(() => {
+    // Generate particles only on client side to avoid hydration mismatch
+    const generatedParticles = [...Array(15)].map((_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      animationDelay: Math.random() * 3,
+      animationDuration: 2 + Math.random() * 3
+    }));
+    setParticles(generatedParticles);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-900 relative overflow-hidden">
@@ -16,15 +30,15 @@ const Hero = () => {
         
         {/* Floating particles */}
         <div className="absolute inset-0">
-          {[...Array(15)].map((_, i) => (
+          {particles.map((particle) => (
             <div
-              key={i}
+              key={particle.id}
               className="absolute w-1 h-1 bg-white rounded-full animate-ping"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 3}s`
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
+                animationDelay: `${particle.animationDelay}s`,
+                animationDuration: `${particle.animationDuration}s`
               }}
             ></div>
           ))}
@@ -126,51 +140,64 @@ const Hero = () => {
           </div>
         </div>
 
+
+
         {/* Statistics Section */}
         <div className="mt-1">
           <div className="bg-gray-800 rounded-lg shadow-xl p-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Experience */}
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gray-700 border-2 border-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <button 
+                className="flex items-center space-x-4 w-full p-4 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors border-2 border-transparent hover:border-orange-500 focus:outline-none focus:border-orange-500"
+                onClick={() => setShowExperienceModal(true)}
+              >
+                <div className="w-12 h-12 bg-gray-600 border-2 border-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
                   <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <div>
+                <div className="text-left">
                   <h3 className="text-lg font-bold text-white">4 months Job</h3>
                   <p className="text-gray-400 text-sm">Experience</p>
                 </div>
-              </div>
+              </button>
 
               {/* Projects */}
               <div 
-                className="flex items-center space-x-4 cursor-pointer hover:bg-gray-700 p-2 rounded-lg transition-colors"
-                onClick={() => setShowProjectsModal(true)}
+                className="flex items-center space-x-4 w-full p-4 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors border-2 border-transparent hover:border-orange-500 cursor-pointer"
+                onClick={() => {
+                  console.log('PROJECTS CLICKED!');
+                  alert('PROJECTS CLICKED!');
+                  setShowProjectsModal(true);
+                }}
               >
-                <div className="w-12 h-12 bg-gray-700 border-2 border-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gray-600 border-2 border-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
                   <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-white">9 Projects</h3>
+                <div className="text-left">
+                  <h3 className="text-lg font-bold text-white">6 Projects</h3>
                   <p className="text-gray-400 text-sm">Completed</p>
                 </div>
               </div>
 
               {/* Support */}
               <div 
-                className="flex items-center space-x-4 cursor-pointer hover:bg-gray-700 p-2 rounded-lg transition-colors"
-                onClick={() => setShowCertificationsModal(true)}
+                className="flex items-center space-x-4 w-full p-4 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors border-2 border-transparent hover:border-orange-500 cursor-pointer"
+                onClick={() => {
+                  console.log('CERTIFICATIONS CLICKED!');
+                  alert('CERTIFICATIONS CLICKED!');
+                  setShowCertificationsModal(true);
+                }}
               >
-                <div className="w-12 h-12 bg-gray-700 border-2 border-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gray-600 border-2 border-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
                   <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z" />
                   </svg>
                 </div>
-                <div>
+                <div className="text-left">
                   <h3 className="text-lg font-bold text-white">5</h3>
                   <p className="text-gray-400 text-sm">Certifications</p>
                 </div>
@@ -179,6 +206,40 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Experience Modal */}
+      {showExperienceModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-gray-800 rounded-lg p-8 max-w-2xl w-full mx-4 max-h-[80vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold text-white">My Experience</h2>
+              <button 
+                onClick={() => setShowExperienceModal(false)}
+                className="text-gray-400 hover:text-white text-2xl font-bold"
+              >
+                ×
+              </button>
+            </div>
+            <div className="space-y-6">
+              <div className="bg-gray-700 rounded-lg p-4">
+                <h3 className="text-lg font-semibold text-white mb-2">System Developer</h3>
+                <p className="text-orange-400 text-sm mb-2">4 months • Current Position</p>
+                <p className="text-gray-300">Developing and maintaining software systems, implementing new features, and ensuring system reliability and performance.</p>
+              </div>
+              <div className="bg-gray-700 rounded-lg p-4">
+                <h3 className="text-lg font-semibold text-white mb-2">Web Development Intern</h3>
+                <p className="text-orange-400 text-sm mb-2">3 months • Previous Role</p>
+                <p className="text-gray-300">Assisted in developing responsive web applications using modern frameworks and technologies.</p>
+              </div>
+              <div className="bg-gray-700 rounded-lg p-4">
+                <h3 className="text-lg font-semibold text-white mb-2">Freelance Web Designer</h3>
+                <p className="text-orange-400 text-sm mb-2">2 years • Side Projects</p>
+                <p className="text-gray-300">Created custom websites for small businesses, focusing on user experience and modern design principles.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Projects Modal */}
       {showProjectsModal && (

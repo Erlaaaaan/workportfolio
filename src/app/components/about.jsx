@@ -49,10 +49,18 @@ const About = () => {
                   <div className="relative h-3 bg-gray-700 rounded-full overflow-hidden">
                     <div className="h-full bg-orange-500 rounded-full" style={{ width: '95%' }}></div>
                     {/* Glowing circle overlay */}
-                    <div className="absolute top-1/2 right-1 transform -translate-y-1/2 w-4 h-4 bg-gray-600 rounded-full animate-pulse" style={{ right: '5%' }}></div>
+                  
                   </div>
                 </div>
-
+                  {/* Java */}
+                  <div className="relative">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-gray-300 font-medium">Javascript</span>
+                  </div>
+                  <div className="relative h-3 bg-gray-700 rounded-full overflow-hidden">
+                    <div className="h-full bg-orange-500 rounded-full" style={{ width: '90%' }}></div>
+                  </div>
+                </div>
                 {/* HTML */}
                 <div className="relative">
                   <div className="flex justify-between items-center mb-2">
@@ -80,6 +88,16 @@ const About = () => {
                   </div>
                   <div className="relative h-3 bg-gray-700 rounded-full overflow-hidden">
                     <div className="h-full bg-orange-500 rounded-full" style={{ width: '65%' }}></div>
+                  </div>
+                </div>
+
+                  {/* Tailwind */}
+                  <div className="relative">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-gray-300 font-medium">Tailwind</span>
+                  </div>
+                  <div className="relative h-3 bg-gray-700 rounded-full overflow-hidden">
+                    <div className="h-full bg-orange-500 rounded-full" style={{ width: '78%' }}></div>
                   </div>
                 </div>
 
