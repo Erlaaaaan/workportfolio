@@ -22,58 +22,144 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900 relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-orange-900/20 animate-pulse"></div>
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Animated geometric rectangles background */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        {/* Rectangles - Moving and rotating */}
+        <div className="absolute w-24 h-12 bg-gradient-to-r from-amber-400/20 to-orange-500/20 rounded-lg animate-float-rotate" style={{
+          animation: 'float-rotate 15s ease-in-out infinite',
+          top: '20%',
+          left: '20%'
+        }} />
+        <div className="absolute w-20 h-10 bg-gradient-to-r from-gray-400/20 to-gray-600/20 rounded-lg animate-float-rotate-reverse" style={{
+          animation: 'float-rotate-reverse 18s ease-in-out infinite',
+          top: '40%',
+          right: '32%'
+        }} />
+        <div className="absolute w-32 h-16 bg-gradient-to-r from-amber-400/15 via-orange-500/15 to-yellow-400/15 rounded-lg animate-float-rotate" style={{
+          animation: 'float-rotate 20s ease-in-out infinite',
+          bottom: '40%',
+          left: '25%'
+        }} />
+        <div className="absolute w-28 h-14 bg-gradient-to-r from-amber-400/25 to-orange-500/25 rounded-lg animate-float-rotate-reverse" style={{
+          animation: 'float-rotate-reverse 22s ease-in-out infinite',
+          top: '33%',
+          right: '25%'
+        }} />
         
-        {/* Floating particles */}
-        <div className="absolute inset-0">
-          {particles.map((particle) => (
-            <div
-              key={particle.id}
-              className="absolute w-1 h-1 bg-white rounded-full animate-ping"
-              style={{
-                left: `${particle.left}%`,
-                top: `${particle.top}%`,
-                animationDelay: `${particle.animationDelay}s`,
-                animationDuration: `${particle.animationDuration}s`
-              }}
-            ></div>
-          ))}
-        </div>
-
-        {/* Flare effects */}
-        <div className="absolute top-10 left-10 w-40 h-3 bg-gradient-to-r from-transparent via-blue-400 to-transparent blur-2xl opacity-60 animate-pulse"></div>
-        <div className="absolute top-20 right-20 w-48 h-4 bg-gradient-to-r from-transparent via-purple-400 to-transparent blur-3xl opacity-70 animate-pulse delay-1000"></div>
-        <div className="absolute bottom-20 left-20 w-36 h-3 bg-gradient-to-r from-transparent via-orange-400 to-transparent blur-2xl opacity-50 animate-pulse delay-2000"></div>
-        <div className="absolute bottom-10 right-10 w-44 h-4 bg-gradient-to-r from-transparent via-pink-400 to-transparent blur-3xl opacity-60 animate-pulse delay-1500"></div>
-
-        {/* Geometric shapes */}
-        <div className="absolute top-1/4 left-1/4 w-16 h-16 border-2 border-blue-400 border-dashed opacity-40 animate-spin"></div>
-        <div className="absolute top-3/4 right-1/4 w-12 h-12 border-2 border-purple-400 border-dashed opacity-40 animate-spin delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 w-8 h-8 border-2 border-orange-400 border-dashed opacity-40 animate-spin delay-2000"></div>
-
-        {/* Floating orbs */}
-        <div className="absolute top-20 left-20 w-6 h-6 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-60 animate-bounce"></div>
-        <div className="absolute top-40 right-40 w-4 h-4 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-50 animate-bounce delay-1000"></div>
-        <div className="absolute bottom-40 left-40 w-5 h-5 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full opacity-60 animate-bounce delay-2000"></div>
-
-        {/* Diagonal lines */}
-        <div className="absolute top-1/3 left-1/3 w-32 h-1 bg-gradient-to-r from-transparent via-purple-400 to-transparent blur-xl opacity-40 transform rotate-45"></div>
-        <div className="absolute top-2/3 right-1/3 w-28 h-2 bg-gradient-to-r from-transparent via-blue-400 to-transparent blur-2xl opacity-50 transform -rotate-45"></div>
+        {/* Triangles - Moving and rotating */}
+        <div className="absolute w-0 h-0 border-l-[20px] border-l-transparent border-b-[35px] border-b-amber-500/30 border-r-[20px] border-r-transparent animate-float-rotate" style={{
+          animation: 'float-rotate 12s ease-in-out infinite',
+          top: '25%',
+          left: '16%'
+        }} />
+        <div className="absolute w-0 h-0 border-l-[25px] border-l-transparent border-b-[40px] border-b-gray-600/30 border-r-[25px] border-r-transparent animate-float-rotate-reverse" style={{
+          animation: 'float-rotate-reverse 16s ease-in-out infinite',
+          bottom: '25%',
+          right: '16%'
+        }} />
         
-        {/* Floating triangles */}
-        <div className="absolute top-1/3 left-1/6 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-b-[16px] border-b-purple-500 opacity-40 animate-bounce delay-500"></div>
-        <div className="absolute top-2/3 right-1/6 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[12px] border-b-orange-400 opacity-40 animate-bounce delay-1500"></div>
-
-        {/* Orbital rings */}
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 border border-blue-400/30 rounded-full animate-spin"></div>
-        <div className="absolute top-1/2 left-1/2 w-80 h-80 border border-purple-400/20 rounded-full animate-spin delay-1000"></div>
+        {/* Circles - Moving and rotating */}
+        <div className="absolute w-16 h-16 rounded-full bg-gradient-to-r from-amber-400/20 to-orange-500/20 animate-float-rotate" style={{
+          animation: 'float-rotate 14s ease-in-out infinite',
+          top: '50%',
+          left: '25%'
+        }} />
+        <div className="absolute w-20 h-20 rounded-full bg-gradient-to-r from-gray-400/20 to-gray-600/20 animate-float-rotate-reverse" style={{
+          animation: 'float-rotate-reverse 19s ease-in-out infinite',
+          bottom: '50%',
+          right: '25%'
+        }} />
+        
+        {/* Hexagon - Moving and rotating */}
+        <div className="absolute w-24 h-24 bg-gradient-to-r from-amber-400/15 via-orange-500/15 to-yellow-400/15 animate-float-rotate" style={{
+          clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+          animation: 'float-rotate 17s ease-in-out infinite',
+          top: '33%',
+          left: '66%'
+        }} />
+        
+        {/* Diamond - Moving and rotating */}
+        <div className="absolute w-20 h-20 bg-gradient-to-r from-amber-400/25 to-orange-500/25 animate-float-rotate-reverse" style={{
+          transform: 'rotate(45deg)',
+          animation: 'float-rotate-reverse 21s ease-in-out infinite',
+          bottom: '33%',
+          left: '50%'
+        }} />
+        
+        {/* Additional moving shapes */}
+        <div className="absolute w-28 h-14 bg-gradient-to-r from-amber-400/15 via-orange-500/15 to-yellow-400/15 rounded-lg animate-float-rotate" style={{
+          animation: 'float-rotate 25s ease-in-out infinite',
+          top: '16%',
+          right: '33%'
+        }} />
+        <div className="absolute w-32 h-16 bg-gradient-to-r from-gray-400/20 to-gray-600/20 rounded-lg animate-float-rotate-reverse" style={{
+          animation: 'float-rotate-reverse 28s ease-in-out infinite',
+          bottom: '16%',
+          left: '33%'
+        }} />
+        
+        {/* More moving triangles */}
+        <div className="absolute w-0 h-0 border-l-[30px] border-l-transparent border-b-[50px] border-b-amber-300/40 border-r-[30px] border-r-transparent animate-float-rotate" style={{
+          animation: 'float-rotate 13s ease-in-out infinite',
+          top: '66%',
+          left: '12%'
+        }} />
+        <div className="absolute w-0 h-0 border-l-[18px] border-l-transparent border-b-[30px] border-b-gray-500/40 border-r-[18px] border-r-transparent animate-float-rotate-reverse" style={{
+          animation: 'float-rotate-reverse 24s ease-in-out infinite',
+          top: '12%',
+          right: '12%'
+        }} />
+        
+        {/* More moving circles */}
+        <div className="absolute w-12 h-12 rounded-full bg-gradient-to-r from-amber-400/20 to-orange-500/20 animate-float-rotate" style={{
+          animation: 'float-rotate 26s ease-in-out infinite',
+          bottom: '12%',
+          left: '12%'
+        }} />
+        <div className="absolute w-18 h-18 rounded-full bg-gradient-to-r from-gray-400/20 to-gray-600/20 animate-float-rotate-reverse" style={{
+          animation: 'float-rotate-reverse 30s ease-in-out infinite',
+          top: '75%',
+          right: '12%'
+        }} />
+        
+        {/* Additional moving hexagon */}
+        <div className="absolute w-20 h-20 bg-gradient-to-r from-amber-400/15 via-orange-500/15 to-yellow-400/15 animate-float-rotate" style={{
+          clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+          animation: 'float-rotate 23s ease-in-out infinite',
+          bottom: '25%',
+          right: '33%'
+        }} />
+        
+        {/* Additional moving diamond */}
+        <div className="absolute w-16 h-16 bg-gradient-to-r from-amber-400/15 via-orange-500/15 to-yellow-400/15 animate-float-rotate-reverse" style={{
+          transform: 'rotate(45deg)',
+          animation: 'float-rotate-reverse 27s ease-in-out infinite',
+          top: '50%',
+          right: '16%'
+        }} />
+        
+        {/* Extra moving decorative elements */}
+        <div className="absolute w-8 h-8 rounded-full bg-gradient-to-r from-amber-400/20 to-orange-500/20 animate-float-rotate" style={{
+          animation: 'float-rotate 29s ease-in-out infinite',
+          top: '25%',
+          right: '33%'
+        }} />
+        <div className="absolute w-10 h-10 rounded-full bg-gradient-to-r from-gray-400/20 to-gray-600/20 animate-float-rotate-reverse" style={{
+          animation: 'float-rotate-reverse 31s ease-in-out infinite',
+          bottom: '33%',
+          left: '16%'
+        }} />
+        <div className="absolute w-6 h-6 bg-gradient-to-r from-amber-400/15 via-orange-500/15 to-yellow-400/15 animate-float-rotate" style={{
+          clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+          animation: 'float-rotate 32s ease-in-out infinite',
+          top: '75%',
+          left: '33%'
+        }} />
       </div>
+      
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 py-20">
+      <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
                 {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh] relative">
           
@@ -128,14 +214,53 @@ const Hero = () => {
 
           {/* Right Section - Portrait Image */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-80 h-96 lg:w-800 lg:h-[590px] z-20">
+            <div className="relative w-80 h-96 lg:w-800 lg:h-[590px] z-20 group">
+              {/* Animated border frame */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-500 rounded-2xl opacity-75 blur-xl group-hover:opacity-100 transition-all duration-500 animate-pulse"></div>
+              
+              {/* Glowing background */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-orange-500/20 via-yellow-500/20 to-orange-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              
+              {/* Main image container */}
+              <div className="relative w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl overflow-hidden shadow-2xl transform group-hover:scale-105 transition-all duration-500">
+                {/* Floating particles around the image */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <div className="absolute top-4 left-4 w-2 h-2 bg-orange-400 rounded-full animate-ping opacity-75"></div>
+                  <div className="absolute top-8 right-6 w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse opacity-60" style={{ animationDelay: '1s' }}></div>
+                  <div className="absolute bottom-6 left-6 w-1 h-1 bg-orange-300 rounded-full animate-bounce opacity-50" style={{ animationDelay: '2s' }}></div>
+                  <div className="absolute bottom-4 right-4 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-ping opacity-70" style={{ animationDelay: '0.5s' }}></div>
+                </div>
+                
+                {/* Image with enhanced styling */}
               <Image
                 src="/images/erlan.jpg"
                 alt="Erlan Justin Dungog"
                 fill
-                className="object-cover rounded-lg"
+                  className="object-cover rounded-xl group-hover:brightness-110 group-hover:contrast-110 transition-all duration-500"
                 priority
               />
+                
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Corner decorations */}
+                <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-orange-500 rounded-tl-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                <div className="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 border-yellow-500 rounded-tr-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-yellow-500 rounded-bl-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-orange-500 rounded-br-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                
+                {/* Floating name badge */}
+                <div className="absolute bottom-2 right-2 bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-3 py-1.5 rounded-lg shadow-lg transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-10">
+                  <p className="text-xs font-bold whitespace-nowrap">Erlan Justin</p>
+                </div>
+                
+                {/* Status indicator */}
+                <div className="absolute top-4 right-4 w-4 h-4 bg-green-500 rounded-full border-2 border-white shadow-lg animate-pulse"></div>
+              </div>
+              
+              {/* Floating geometric shapes */}
+              <div className="absolute -top-2 -right-2 w-6 h-6 border-2 border-orange-400 rounded-full opacity-0 group-hover:opacity-100 animate-spin" style={{ animationDuration: '3s' }}></div>
+              <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 animate-bounce" style={{ animationDelay: '1s' }}></div>
             </div>
           </div>
         </div>
@@ -143,64 +268,77 @@ const Hero = () => {
 
 
         {/* Statistics Section */}
-        <div className="mt-1">
-          <div className="bg-gray-800 rounded-lg shadow-xl p-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-8">
+          <div className="bg-gradient-to-br from-gray-800/80 via-gray-700/80 to-gray-800/80 backdrop-blur-sm rounded-2xl shadow-2xl p-8 border border-gray-600/30">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Experience */}
-              <button 
-                className="flex items-center space-x-4 w-full p-4 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors border-2 border-transparent hover:border-orange-500 focus:outline-none focus:border-orange-500"
-                onClick={() => setShowExperienceModal(true)}
+              <div 
+                className="group relative flex items-center space-x-6 w-full p-6 bg-gradient-to-br from-gray-700/50 via-gray-600/50 to-gray-700/50 hover:from-gray-600/70 hover:via-gray-500/70 hover:to-gray-600/70 rounded-xl transition-all duration-300 border-2 border-transparent hover:border-orange-500/50 transform hover:scale-105 hover:shadow-xl"
               >
-                <div className="w-12 h-12 bg-gray-600 border-2 border-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-yellow-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div className="relative flex items-center space-x-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-orange-500/25 transition-all duration-300 transform group-hover:scale-110">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
                 <div className="text-left">
-                  <h3 className="text-lg font-bold text-white">4 months Job</h3>
-                  <p className="text-gray-400 text-sm">Experience</p>
+                    <h3 className="text-xl font-bold text-white group-hover:text-orange-300 transition-colors duration-300">4 months Job</h3>
+                    <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">Experience</p>
+                  </div>
                 </div>
-              </button>
+                
+                {/* Hover indicator */}
+                <div className="absolute bottom-2 left-1/2 w-8 h-1 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></div>
+              </div>
 
               {/* Projects */}
               <div 
-                className="flex items-center space-x-4 w-full p-4 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors border-2 border-transparent hover:border-orange-500 cursor-pointer"
-                onClick={() => {
-                  console.log('PROJECTS CLICKED!');
-                  alert('PROJECTS CLICKED!');
-                  setShowProjectsModal(true);
-                }}
+                className="group relative flex items-center space-x-6 w-full p-6 bg-gradient-to-br from-gray-700/50 via-gray-600/50 to-gray-700/50 hover:from-gray-600/70 hover:via-gray-500/70 hover:to-gray-600/70 rounded-xl transition-all duration-300 border-2 border-transparent hover:border-green-500/50 transform hover:scale-105 hover:shadow-xl"
               >
-                <div className="w-12 h-12 bg-gray-600 border-2 border-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div className="relative flex items-center space-x-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-green-500/25 transition-all duration-300 transform group-hover:scale-110">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <div className="text-left">
-                  <h3 className="text-lg font-bold text-white">6 Projects</h3>
-                  <p className="text-gray-400 text-sm">Completed</p>
+                    <h3 className="text-xl font-bold text-white group-hover:text-green-300 transition-colors duration-300">6 Projects</h3>
+                    <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">Completed</p>
+                  </div>
                 </div>
+                
+                {/* Hover indicator */}
+                <div className="absolute bottom-2 left-1/2 w-8 h-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></div>
               </div>
 
-              {/* Support */}
+              {/* Certifications */}
               <div 
-                className="flex items-center space-x-4 w-full p-4 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors border-2 border-transparent hover:border-orange-500 cursor-pointer"
-                onClick={() => {
-                  console.log('CERTIFICATIONS CLICKED!');
-                  alert('CERTIFICATIONS CLICKED!');
-                  setShowCertificationsModal(true);
-                }}
+                className="group relative flex items-center space-x-6 w-full p-6 bg-gradient-to-br from-gray-700/50 via-gray-600/50 to-gray-700/50 hover:from-gray-600/70 hover:via-gray-500/70 hover:to-gray-600/70 rounded-xl transition-all duration-300 border-2 border-transparent hover:border-purple-500/50 transform hover:scale-105 hover:shadow-xl"
               >
-                <div className="w-12 h-12 bg-gray-600 border-2 border-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div className="relative flex items-center space-x-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-purple-500/25 transition-all duration-300 transform group-hover:scale-110">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z" />
                   </svg>
                 </div>
                 <div className="text-left">
-                  <h3 className="text-lg font-bold text-white">5</h3>
-                  <p className="text-gray-400 text-sm">Certifications</p>
+                    <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300">5</h3>
+                    <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">Certifications</p>
+                  </div>
                 </div>
+                
+                {/* Hover indicator */}
+                <div className="absolute bottom-2 left-1/2 w-8 h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></div>
               </div>
             </div>
           </div>

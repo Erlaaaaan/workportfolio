@@ -1,10 +1,49 @@
 'use client';
 
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleContactClick = () => {
+    setIsNavigating(true);
+    router.push('/form');
+    // Reset loading state after navigation
+    setTimeout(() => setIsNavigating(false), 2000);
+  };
+
   return (
-    <header className="bg-black text-white px-6 py-4 relative overflow-hidden">
+    <>
+      {/* Loading Overlay */}
+      {isNavigating && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999] flex items-center justify-center">
+          <div className="text-center">
+            <div className="w-16 h-16 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <h2 className="text-2xl font-bold text-white mb-2">Loading...</h2>
+            <p className="text-gray-300">Taking you to the contact form</p>
+          </div>
+        </div>
+      )}
+
+      <header className={`fixed top-0 left-0 right-0 z-50 text-white px-6 py-4 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/20 backdrop-blur-md shadow-lg border-b border-white/10' 
+          : 'bg-gray-700/90 backdrop-blur-sm'
+      }`}>
       {/* Background wavy patterns */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-10">
@@ -17,37 +56,28 @@ export default function Header() {
       <div className="relative z-10 max-w-7xl mx-auto flex items-center justify-between">
         {/* Brand/Logo Section */}
         <div className="flex items-center space-x-3">
-          {/* Purple glowing logo */}
-          <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/50">
-            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
-          </div>
+          {/* Logo */}
+          <Link href="/" className="w-20 h-12 rounded-lg flex items-center justify-center shadow-lg overflow-hidden bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 cursor-pointer group">
+            <img src="/images/123123.png" alt="EJ Logo" className="w-full h-full object-contain filter brightness-110 contrast-110 group-hover:scale-105 transition-transform duration-300" />
+          </Link>
         </div>
 
         {/* Navigation Container */}
         <div className="flex items-center space-x-6">
           {/* Navigation Links Container */}
-          <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-700/30 rounded-lg px-6 py-2">
-            <nav className="flex items-center space-x-8">
-              <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
-                About Me
-              </Link>
-              <Link href="/experience" className="text-gray-300 hover:text-white transition-colors">
-                Experience
-              </Link>
-              <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
-                Our Service
-              </Link>
-            </nav>
-          </div>
+         
 
           {/* Contact Me Button */}
-          <Link href="/contact" className="bg-gradient-to-r from-purple-500 to-orange-500 hover:from-purple-600 hover:to-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-purple-500/25">
+          <button 
+            onClick={handleContactClick}
+            disabled={isNavigating}
+            className="bg-gradient-to-r from-purple-500 to-orange-500 hover:from-purple-600 hover:to-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-purple-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
             Contact Me
-          </Link>
+          </button>
         </div>
       </div>
     </header>
+    </>
   );
 }
