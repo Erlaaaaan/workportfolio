@@ -23,3 +23,17 @@ const db = getFirestore(app);
 const analytics = getAnalytics(app);
 
 export { db };
+
+
+
+
+
+
+
+// # NEXT_PUBLIC_PORTFOLIO_FIREBASE_API_KEY="AIzaSyAuPxfvNf6zGDpIeCeKyPjsSyPE9tN1RKc",
+// # NEXT_PUBLIC_PORTFOLIO_FIREBASE_AUTH_DOMAIN="erlan-portfolio.firebaseapp.com",
+// # NEXT_PUBLIC_PORTFOLIO_FIREBASE_PROJECT_ID="erlan-portfolio",
+// # NEXT_PUBLIC_PORTFOLIO_FIREBASE_STORAGE_BUCKET="erlan-portfolio.firebasestorage.app",
+// # NEXT_PUBLIC_PORTFOLIO_FIREBASE_MESSAGING_SENDER_ID="60209247134",
+// # NEXT_PUBLIC_PORTFOLIO_FIREBASE_APP_ID="1:60209247134:web:9594ee0d56608c0fdcdc8f",
+// # NEXT_PUBLIC_PORTFOLIO_FIREBASE_MEASUREMENT_ID="G-HDV3HDVTZR"
