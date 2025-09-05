@@ -2,12 +2,9 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isNavigating, setIsNavigating] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,27 +16,9 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleContactClick = () => {
-    setIsNavigating(true);
-    router.push('/form');
-    // Reset loading state after navigation
-    setTimeout(() => setIsNavigating(false), 2000);
-  };
 
   return (
-    <>
-      {/* Loading Overlay */}
-      {isNavigating && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999] flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-16 h-16 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <h2 className="text-2xl font-bold text-white mb-2">Loading...</h2>
-            <p className="text-gray-300">Taking you to the contact form</p>
-          </div>
-        </div>
-      )}
-
-      <header className={`fixed top-0 left-0 right-0 z-50 text-white px-6 py-4 transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 right-0 z-50 text-white px-6 py-4 transition-all duration-300 ${
         isScrolled 
           ? 'bg-white/20 backdrop-blur-md shadow-lg border-b border-white/10' 
           : 'bg-gray-700/90 backdrop-blur-sm'
@@ -64,20 +43,14 @@ export default function Header() {
 
         {/* Navigation Container */}
         <div className="flex items-center space-x-6">
-          {/* Navigation Links Container */}
-         
-
           {/* Contact Me Button */}
-          <button 
-            onClick={handleContactClick}
-            disabled={isNavigating}
-            className="bg-gradient-to-r from-purple-500 to-orange-500 hover:from-purple-600 hover:to-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-purple-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            Contact Me
-          </button>
+          <Link href="/form">
+            <button className="bg-gradient-to-r from-purple-500 to-orange-500 hover:from-purple-600 hover:to-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-purple-500/25">
+              Contact Me
+            </button>
+          </Link>
         </div>
       </div>
     </header>
-    </>
   );
 }

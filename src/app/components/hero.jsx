@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 const Hero = () => {
   const [showExperienceModal, setShowExperienceModal] = useState(false);
@@ -205,9 +206,11 @@ const Hero = () => {
                 <button className="px-8 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors">
                   Download CV
                 </button>
-                <button className="px-8 py-3 border-2 border-orange-500 text-orange-500 font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition-colors">
-                  Contact Me
-                </button>
+                <Link href="/form">
+                  <button className="px-8 py-3 border-2 border-orange-500 text-orange-500 font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition-colors">
+                    Contact Me
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
