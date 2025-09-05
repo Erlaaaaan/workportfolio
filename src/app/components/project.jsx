@@ -417,7 +417,7 @@ const Project = () => {
               <div className="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors shadow-lg">
                 <div className="h-80 bg-white flex items-center justify-center p-4">
                   <img 
-                    src="/images/Digital.png" 
+                    src="/images/ERS.png" 
                     alt="Digital Marketing Campaign" 
                     className="w-full h-full object-contain"
                     onError={(e) => {
@@ -436,7 +436,7 @@ const Project = () => {
                   <h3 className="text-xl font-bold text-white mb-2">Employee Record System Client Side</h3>
                   <p className="text-gray-300 mb-4">Digital marketing campaign and strategy</p>
                   <a 
-                    href="#" 
+                    href="https://drive.google.com/file/d/1JeYjcoVUiRSDlzUJotiAwUdw8orhcxuB/view?usp=sharing" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="w-full bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors block text-center"
@@ -450,7 +450,7 @@ const Project = () => {
               <div className="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors shadow-lg">
                 <div className="h-80 bg-white flex items-center justify-center p-4">
                   <img 
-                    src="/images/cyber.png" 
+                    src="/images/ERS ad.png" 
                     alt="Cyber Security Project" 
                     className="w-full h-full object-contain"
                     onError={(e) => {
@@ -467,9 +467,9 @@ const Project = () => {
                     </span>
                   </div>
                   <h3 className="text-xl font-bold text-white mb-2">Employee Record System Admin Side</h3>
-                  <p className="text-gray-300 mb-4">Security assessment and implementation</p>
+                  <p className="text-gray-300 mb-4">Uploading the application of Employee Record System</p>
                   <a 
-                    href="#" 
+                    href="https://drive.google.com/file/d/1JCn17plgRNZKsivEurVLny2GYaLnB935/view?usp=sharing" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="w-full bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors block text-center"
