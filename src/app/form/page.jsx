@@ -30,6 +30,15 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
+    // // Check if Firebase is properly configured
+    // if (!isFirebaseConfigured()) {
+    //   console.error('Firebase is not properly configured. Please check your environment variables.');
+    //   setSubmitStatus('error');
+    //   alert('Firebase is not properly configured. Please contact the administrator or check your environment variables.');
+    //   setIsSubmitting(false);
+    //   return;
+    // }
+
     try {
       const docRef = await addDoc(collection(db, 'contacts'), {
         name: formData.name,
@@ -56,7 +65,10 @@ export default function ContactForm() {
         setSubmitStatus(null);
       }, 3000);
     } catch (error) {
+      console.error('Error submitting form:', error);
       setSubmitStatus('error');
+      // Show more specific error message
+      alert(`Error: ${error.message || 'Failed to send message. Please check your internet connection and try again.'}`);
     } finally {
       setIsSubmitting(false);
     }
