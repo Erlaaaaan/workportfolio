@@ -281,19 +281,7 @@ const About = () => {
                   </div>
                 </div>
 
-                {/* PHP */}
-                 <div className="relative group/skill">
-                  <div className="flex justify-between items-center mb-2">
-                     <span className="text-gray-300 font-medium group-hover/skill:text-orange-300 transition-colors duration-300">PHP</span>
-                     <span className="text-orange-400 font-bold text-sm group-hover/skill:text-yellow-300 transition-colors duration-300">85%</span>
-                  </div>
-                   <div className="relative h-4 bg-gray-700 rounded-full overflow-hidden shadow-inner">
-                     <div className={`h-full bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full shadow-lg transform transition-transform duration-1100 ease-out ${isVisible ? 'translate-x-0' : 'translate-x-[-100%]'}`} style={{ width: '85%' }}></div>
-                     {/* Animated diamonds */}
-                     <div className={`absolute top-1 right-1 w-2 h-2 bg-white transform rotate-45 animate-pulse ${isVisible ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '1.1s' }}></div>
-                     <div className={`absolute top-1 right-4 w-1.5 h-1.5 bg-orange-300 transform rotate-45 animate-bounce ${isVisible ? 'opacity-100' : 'opacity-0'}`} style={{ animationDelay: '0.9s', transitionDelay: '1.4s' }}></div>
-                  </div>
-                </div>
+         
 
                 {/* CSS */}
                  <div className="relative group/skill">
