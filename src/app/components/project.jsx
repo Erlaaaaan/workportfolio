@@ -478,11 +478,47 @@ const Project = () => {
                   </a>
                 </div>
                         </div>
+        {/* (Removed invalid JSX expression that rendered a RegExp) */}
+        <div className="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors shadow-lg">
+                <div className="h-80 bg-white flex items-center justify-center p-4">
+                  <img 
+                      src="/images/wed.png" 
+                    alt="Wedding Invitation Website" 
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'block';
+                    }}
+                  />
+                  <span className="text-gray-400 text-lg" style={{display: 'none'}}>Wedding Invitation Website</span>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-sm font-medium">
+                    Website Development
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">Wedding Invitation Website</h3>
+                  <p className="text-gray-300 mb-4">Invitation website for a wedding</p>
+                  <a 
+                    href="https://wedding-blush-mu.vercel.app/#hero" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-full bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors block text-center"
+                  >
+                    Watch Website
+                  </a>
+                </div>
+                        </div>
 
 
           </div>
         </div>
-        </div>
+
+          </div>
+      
+        
+    
       )}
 
       {/* Responsive Modal */}

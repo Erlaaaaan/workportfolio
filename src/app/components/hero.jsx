@@ -203,9 +203,7 @@ const Hero = () => {
               </p>
              
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="px-8 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors">
-                  Download CV
-                </button>
+                
                 <Link href="/form">
                   <button className="px-8 py-3 border-2 border-orange-500 text-orange-500 font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition-colors">
                     Contact Me
