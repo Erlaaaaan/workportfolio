@@ -310,7 +310,7 @@ const Hero = () => {
                   </svg>
                 </div>
                 <div className="text-left">
-                    <h3 className="text-xl font-bold text-white group-hover:text-green-300 transition-colors duration-300">6 Projects</h3>
+                    <h3 className="text-xl font-bold text-white group-hover:text-green-300 transition-colors duration-300">7 Projects</h3>
                     <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">Completed</p>
                   </div>
                 </div>
